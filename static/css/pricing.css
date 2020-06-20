@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+div.container {
+  display: flex;
+}
+
+.card-deck {
+    margin-right: inherit;
+    margin-left: inherit;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
+}

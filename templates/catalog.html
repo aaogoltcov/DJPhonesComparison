@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Сравнение телефонов</h1>
+        </div>
+    </div>
+
+    <table class="table table-dark">
+        <tr>
+            <td>Модель:</td>
+            {% for phone in phone %}
+            <td>{{ phone.phone_model }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Стоимость:</td>
+            {% for phone in phone %}
+            <td>{{ phone.price }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Операционная система:</td>
+            {% for phone in phone %}
+            <td>{{ phone.os }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Оперативная память:</td>
+            {% for phone in phone %}
+            <td>{{ phone.ram }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Число пикселей на дюйм:</td>
+            {% for phone in phone %}
+            <td>{{ phone.pixel_per_inch }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Двойная камера:</td>
+            {% for phone in phone %}
+            <td>{{ phone.dual_camera|yesno:"Есть,-" }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Процессор:</td>
+            {% for phone in phone %}
+            <td>{{ phone.cpu }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Разрешение экрана:</td>
+            {% for phone in phone %}
+            <td>{{ phone.screen_resolution }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>FM-радио:</td>
+            {% for phone in phone %}
+            <td>{{ phone.fm_radio|yesno:"Есть,-" }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Дополнительно:</td>
+            {% for phone in phone %}
+                <td>
+                    <lu class="add_info">
+                    {% for info in add_info %}
+                        {% if phone.id == info.phone_model %}
+                            <li>{{ info.add_info }}</li>
+                        {% endif %}
+                    {% endfor %}
+                    </lu>
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+
+{% endblock %}
